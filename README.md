@@ -3,7 +3,7 @@
 This program infers using propositional rule on the given knowledge base
 
 ## Description
-In this project, we're required to build knowledge bases that can be used to infer missing information. Specifically, **Knights & Knaves** problems are used in the project. Such as, *A* says "I am both a knight and a knave" our program will output that *A* is a *knave*. We provide the available information using propositional logics: `OR`, `AND`, `NOT`, `IMPLICATION`, `BICONDITIONAL` in a single knowledge base. Then, our program performs **model_checking** algorithm which goes through all the possibilities to find if the given knowledge base entails the conclusion.
+In this project, we're required to build knowledge bases that can be used to infer missing information. Specifically, **Knights & Knaves** problems are used in this project. Such as, *A* says "I am both a knight and a knave" our program will output that *A* is a *knave*. We provide the available information using propositional logics: `OR`, `AND`, `NOT`, `IMPLICATION`, `BICONDITIONAL` in a single knowledge base. Then, our program performs **model_checking** algorithm which goes through all the possibilities to find if the given knowledge base entails the conclusion.
 
 ## Example
 Let's say we have a single piece of information:
@@ -13,6 +13,9 @@ A says "I am both a knight and a knave."
 We will encode it using propositional logic in the following knowledge base.
 **Knowledge base:**
 ```
+AKnight = Symbol("A is a Knight")
+AKnave = Symbol("A is a Knave")
+
 knowledge = And(
     And(Or(AKnight, AKnave), Not(And(AKnight, AKnave))),
     Biconditional(And(AKnight, AKnave), AKnight),
@@ -23,7 +26,12 @@ knowledge = And(
 A is a Knave
 ```
 **Explanation:**
-First of all, we encode the general rule of *Knights & Knaves* problem which is that a person can be either a *knight* or a *knave* but *not* both. This can be represented by an Exclusive OR (`XOR`) statement:
+First of all, we encode the possible outputs into *Symbols* which can be used in propositional logic:
+```
+AKnight = Symbol("A is a Knight")
+AKnave = Symbol("A is a Knave")
+```
+Then, we encode the general rule of *Knights & Knaves* problem which is that a person can be either a *knight* or a *knave* but *not* both. This can be represented by an Exclusive OR (`XOR`) statement:
 ```
 And(Or(AKnight, AKnave), Not(And(AKnight, AKnave)))
 ```
