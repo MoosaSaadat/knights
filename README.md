@@ -25,7 +25,7 @@ knowledge = And(
 ```
 A is a Knave
 ```
-**Explanation:**
+**Explanation:**<br>
 First of all, we encode the possible outputs into *Symbols* which can be used in propositional logic:
 ```
 AKnight = Symbol("A is a Knight")
